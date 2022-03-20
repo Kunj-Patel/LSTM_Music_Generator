@@ -105,7 +105,7 @@ def encode_to_timeseries(song, time_step = 0.25):
 def preprocess(data_path, save_path, music_file_type):
     pass
 
-    # load pokemon songs
+    # load songs
     print("Loading songs...")
     songs = load_songs(data_path, music_file_type)
     print(f"Loaded {len(songs)} songs.")
