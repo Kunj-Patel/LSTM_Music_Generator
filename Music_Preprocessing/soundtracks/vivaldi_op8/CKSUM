@@ -1,0 +1,59 @@
+CHEKSUMS for files from /ccarh/vivaldi/op8/all
+at https://kern.humdrum.org
+downloaded on Sun Mar 20 10:35:52 PDT 2022
+A current version of these files may be downloaded using the address:
+	https://kern.humdrum.org/data?f=zip&l=/ccarh/vivaldi/op8/all
+==================================================================
+
+The following lines list the checksum values for all score
+files in this downloaded zip archive.
+
+A "checksum" value is an error-checking mechanism that may
+assist in determining whether a file has been modified or data
+garbled due to transmission or faulty storage.  The "checksum A"
+value uses the POSIX 2 checksum algorithm.  The "checksum B" value
+uses the CCITT cyclic redundancy check algorithm.  
+
+Note that checksum commands will differ for ASCII files formatted
+in DOS/Windows style or Unix/Macintosh formatted text.  The files in
+this ZIP archive were in Unix/Macintosh line formatting style when the
+checksums were compiled.
+
+checksum A   checksum B    filename
+===================================================================
+
+2036279022 34109 op8n01a.krn
+3381836376 12334 op8n01b.krn
+2171420090 25982 op8n01c.krn
+1064098544 44140 op8n02a.krn
+3386933133 7900 op8n02b.krn
+530992532 52220 op8n02c.krn
+877778964 34647 op8n03a.krn
+1069798056 5194 op8n03b.krn
+1271022691 35681 op8n03c.krn
+1006283564 47617 op8n04a.krn
+1499433818 17923 op8n04b.krn
+4151965880 41054 op8n04c.krn
+3994595342 47691 op8n05a.krn
+2982309691 51133 op8n05c.krn
+3570834134 25032 op8n06a.krn
+87407713 7579 op8n06b.krn
+1029642295 24320 op8n06c.krn
+1869371417 32354 op8n07a.krn
+1786415525 4280 op8n07b.krn
+1193279004 26109 op8n07c.krn
+2073123003 28982 op8n08a.krn
+4239706756 5859 op8n08b.krn
+3943420230 39351 op8n08c.krn
+1207340754 32181 op8n09a.krn
+894912240 5819 op8n09b.krn
+1245990428 30128 op8n09c.krn
+602233855 37880 op8n10a.krn
+2259416778 3621 op8n10b.krn
+2349214542 28866 op8n10c.krn
+2282251926 53319 op8n11a.krn
+2739468146 5677 op8n11b.krn
+3333037073 60403 op8n11c.krn
+3207092087 29422 op8n12a.krn
+2458512076 3292 op8n12b.krn
+2828608721 30926 op8n12c.krn

@@ -1,0 +1,139 @@
+
+       + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+       +                                                           +
+       +                        SOURCES FOR                        +
+       +                                                           +
+       +               The 12 Violin Concertos Opus 8              +
+       +                                                           +
+       +                          -  by  -                         +
+       +                                                           +
+       +                      Antonio Vivaldi                      +
+       +                                                           +
+       + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+
+
+     The four chief sources for the concertos of Op. 8 are the print made
+in Amsterdam in 1725 by Michel-Charles Le Cene and three incomplete sets
+of manuscripts found in Dresden (Germany), Turin (Italy) and Manchester
+(England).  A specific listing of the contents of these sources is given
+at the end of this document.
+
+==========================
+The Amsterdam Print (1725)
+==========================
+
+     Like many Dutch prints of Italian music, the published versions of
+these works contain many small defects, such as inconsistencies in the
+rendering of parts that are musically parallel.  Truly incorrect pitches
+are found at a relatively low level, although haphazardly marked accidentals
+are numerous.  Rhythmic errors are few.  The instrumental parts are
+identified as "Violino principale," "Violino primo," "Violino secondo,"
+"Alto viola," and "Organo e Violoncello."  These designations are retained
+in three Parisian reprints -- of c.1739, 1743, and 1748 -- all by 
+Charles-Nicolas Le Clerc, a violinist turned publisher.
+
+    The more daunting questions that arise from these prints are those of
+authority.  Because Op.8 carries a dedication written by Vivaldi, we can
+be sure that this publication was sanctioned by the composer.  It seems
+unlikely that he saw proof copy, however.  "The Four Seasons" had a
+substantial performance history prior to publication and thus the copies
+offered for print, even if inadequately proofread, are highly polished
+musically.  One exception, however, is the elusive obbligato Violoncello
+part of the slow movement of the "Winter" concerto, which is missing from
+many modern editions and recordings.  It is incorporated in the Selfridge-
+Field critical edition version of this database.  Discrepancies between
+parts are widespread, especially in the dynamics and placement of text
+elements in "The Four Seasons."
+
+     Many of the remaining works that make up Op. 8 seem not to have had
+the benefit of frequent performance.  While some works -- especially No. 5
+("The Tempest") and No. 10 ("The Hunt") -- give, like "The Four Seasons,"
+evidence of currency in the repertory of the time, other numbers may not
+have been performed prior to publication.  In the case of No. 9, for example,
+the performed version may have been that for oboe (preserved in manuscript)
+rather than that for violin, an adaptation intended to appeal to a broader
+market.  Abrupt transitions are occasionally found in some of the other
+concertos of this collection and many contain unison ritornellos that amount
+to little more than sketches in Vivaldi's autographs.  In the case of No. 11,
+manuscript sources suggest either that Vivaldi never settled on a final
+version of the work or that he adapted the solo episodes to suit a series
+of different violinists.  The work printed by Le Cene may represent a
+preliminary selection of draft material.
+
+=======================
+The Dresden Manuscripts
+=======================
+
+     The manuscript materials preserved in Dresden include scores and parts
+(not necessarily for the same works). k The most valuable of these are the
+copies made by Johann Georg Pisdendel, a famous violinist of Vivaldi's time,
+who visited Venice in 1716.  Pisendel became an important exponent of
+Vivaldi's music at the Saxon court in Dresden, where he led the orchestra
+from 1730 to 1755.  He was especially noted for his execution of expressive
+slow movements.
+
+     In the case of Op. 8, the greatest differences from the Amsterdam
+print concern the treatment of the Violino principale and Basso continuo
+parts.  In the Violino principale the slures are often longer and differently
+articulated from those of the print.  Since the Pisendel manuscripts are
+earlier than or contemporary with the print, we must regard them as more
+authoritative in these matters.  The Basso continuo tends to be more fully
+articulated rhythmically and more clearly differentiated from the
+Violoncello than in the Amsterdam print.  Although these differences may
+have been influenced by Saxon practice, bowings and many virtuoso details
+have been adopted in the Selfridge-Field critical edition.  Continuo
+figuration is far more extensive in these manuscripts, and often more
+accurate, than in the Amsterdam print.  Fermatas on final notes, which
+appear only haphazardly in the print, are ubiquitous in these and the
+other manuscript sets.
+
+========================
+The Manchester Partbooks
+========================
+
+     These partbooks were probably copied in Rome around the time of Vivaldi's
+death.  They show many evidences of use and are valuable for their consistency
+in the use of slurs and ties.  Many notes that are wrong or ambiguous in the
+Amsterdam print are appropriately corrected in the Selfridge-Field edition
+according to the Manchester partbooks.  Continuo figuration is fuller and
+more accurately placed than in the Amsterdam print.  The sonnet texts for
+"The Four Seasons" are not given in these parts, but the letters that link
+them with the musical structure are retained.  The placement of labels
+varies between parts.  The Viola part is labelled "Violetta."
+
+     Since these manuscripts apparently accommodated Roman performance
+practice, their prescriptions -- for example, in the variable instrumentation
+of the Basso continuo -- do not necessarily represent Vivaldi's thinking.
+Some of the more interpretive changes have not been accepted.  Among the
+elements generally rejected are (1) trills or staccatos substituted for
+detached legato and martellato markings, and other changes to Vivaldi's
+articulation; (2) harmonies changed from minor to major; (3) cadential
+tones altered to "complete" Vivaldi'ss harmony, where he has omitted a third
+or a fifth; (4) changes of texture in the inner parts; and (5) transpositions
+of an octave in the Basso continuo.
+
+==========================
+The Turin Autograph Scores
+==========================
+
+     Vivaldi's autograph scores in Turin, which constitute the largest
+surviving corpus of his music, are extremely valuable.  They provide insight
+into both Vivaldi's moethods of composition and his technical solutions to
+performance problems.  In these sources the variability of Vivaldi's own
+thought on musical construction can be clearly seen.  It is apparent that he
+often fashioned his solos and harmonic schemes first and then left the
+realization of ritornellos to copyists.  For this reason, the sources do
+not always agree on the presence or absence of the ripieno string parts in
+interior passages.  vivaldi sometimes substituted new solo episodes (Nos. 7
+and 11).  For the printed version of Nos. 9 and 12, the principal instrument
+was changed from oboe to violin.  Alternative readings of Nos. 7, 9 and 11
+are possible.  Rhythmic detail is often more articulate in Vivaldi's
+manuscripts than in the print or other copies.  The rhythmic detail of the
+opening motive of No. 10 "The Hunt," offers a striking example.
+
+     In solo episodes some of the Turin manuscripts include position numbers
+for certain notes and a wealth of other subtlety in the management of what
+was, for its day, a dauntingly difficult repertory for the virtusos.
+Vivaldi's method of assisting other performers is rarely reflected in modern
+editions; some of his efforts are evident in the Turin sources.
+
