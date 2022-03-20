@@ -2,7 +2,7 @@ import os
 import json
 import music21 as m21
 import numpy as np
-import keras
+import tensorflow.keras as keras
 
 VIVALDI_DATASET_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/soundtracks/vivaldi_op8"
 FOLK_DATASET_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/soundtracks/deutschl/test"
@@ -210,22 +210,23 @@ def generate_training_sequences(sequence_length, single_file_path, json_path):
     # one-hot encode the sequences
     # inputs: (# of seq, seq length, vocabulary size)
     vocabulary_size = len(set(int_songs))
-    inputs = keras.utils.np_utils.to_categorical(inputs, num_classes=vocabulary_size)
+    inputs = keras.utils.to_categorical(inputs, num_classes=vocabulary_size)
     targets = np.array(targets)
 
     return inputs, targets
 
 
 def main():
-    # preprocess(VIVALDI_DATASET_PATH, CLASSICAL_SAVE_PATH, "krn")
-    # classical_songs = generate_single_file_dataset(CLASSICAL_SAVE_PATH, CLASSICAL_SINGLE_FILE, SEQUENCE_LENGTH)
-    # create_dictionary(classical_songs, CLASSICAL_MAPPING)
+    preprocess(VIVALDI_DATASET_PATH, CLASSICAL_SAVE_PATH, "krn")
+    classical_songs = generate_single_file_dataset(CLASSICAL_SAVE_PATH, CLASSICAL_SINGLE_FILE, SEQUENCE_LENGTH)
+    create_dictionary(classical_songs, CLASSICAL_MAPPING)
+    classical_inputs, classical_targets = generate_training_sequences(SEQUENCE_LENGTH, CLASSICAL_SINGLE_FILE, CLASSICAL_MAPPING)
 
     preprocess(FOLK_DATASET_PATH, FOLK_SAVE_PATH, "krn")
     folk_songs = generate_single_file_dataset(FOLK_SAVE_PATH, FOLK_SINGLE_FILE, SEQUENCE_LENGTH)
     create_dictionary(folk_songs, FOLK_MAPPING)
-    inputs, targets = generate_training_sequences(SEQUENCE_LENGTH, FOLK_SINGLE_FILE, FOLK_MAPPING)
-    a = 1
+    folk_inputs, folk_targets = generate_training_sequences(SEQUENCE_LENGTH, FOLK_SINGLE_FILE, FOLK_MAPPING)
+ 
 
 # Testing individual functions using different datasets
 
