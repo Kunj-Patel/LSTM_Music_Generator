@@ -1,6 +1,8 @@
 import os
 import json
 import music21 as m21
+import numpy as np
+import keras
 
 VIVALDI_DATASET_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/soundtracks/vivaldi_op8"
 FOLK_DATASET_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/soundtracks/deutschl/test"
@@ -169,14 +171,61 @@ def create_dictionary(songs, mapping_path):
         json.dump(dictionary, fp, indent=4)
 
 
+def convert_songs_to_ints(songs, mapping_path):
+    int_songs = []
+
+    # load the dictionary from the json file
+    with open(mapping_path, "r") as fp:
+        dictionary = json.load(fp)
+
+    # cast songs string to a list
+    songs = songs.split()
+
+    # map songs list to ints
+    for symbol in songs:
+        int_songs.append(dictionary[symbol])
+    
+    return int_songs
+
+
+def generate_training_sequences(sequence_length, single_file_path, json_path):
+    # ex.
+    # [11, 12, 13, 14, ...] -> i: [11, 12], t: 13, i: [12, 13], t: 14 ... 
+
+    # load songs and map them to int
+    songs = load(single_file_path)
+    int_songs = convert_songs_to_ints(songs, json_path)
+
+    # generate the training sequences
+    # ex.
+    # 100 symbol dataset, 64 sl, 100 - 64 = 36
+    inputs = []
+    targets = []
+
+    num_sequences = len(int_songs) - sequence_length
+    for i in range(num_sequences):
+        inputs.append(int_songs[i:i+sequence_length])
+        targets.append(int_songs[i+sequence_length])
+
+    # one-hot encode the sequences
+    # inputs: (# of seq, seq length, vocabulary size)
+    vocabulary_size = len(set(int_songs))
+    inputs = keras.utils.np_utils.to_categorical(inputs, num_classes=vocabulary_size)
+    targets = np.array(targets)
+
+    return inputs, targets
+
+
 def main():
-    preprocess(VIVALDI_DATASET_PATH, CLASSICAL_SAVE_PATH, "krn")
-    classical_songs = generate_single_file_dataset(CLASSICAL_SAVE_PATH, CLASSICAL_SINGLE_FILE, SEQUENCE_LENGTH)
-    create_dictionary(classical_songs, CLASSICAL_MAPPING)
+    # preprocess(VIVALDI_DATASET_PATH, CLASSICAL_SAVE_PATH, "krn")
+    # classical_songs = generate_single_file_dataset(CLASSICAL_SAVE_PATH, CLASSICAL_SINGLE_FILE, SEQUENCE_LENGTH)
+    # create_dictionary(classical_songs, CLASSICAL_MAPPING)
 
     preprocess(FOLK_DATASET_PATH, FOLK_SAVE_PATH, "krn")
     folk_songs = generate_single_file_dataset(FOLK_SAVE_PATH, FOLK_SINGLE_FILE, SEQUENCE_LENGTH)
     create_dictionary(folk_songs, FOLK_MAPPING)
+    inputs, targets = generate_training_sequences(SEQUENCE_LENGTH, FOLK_SINGLE_FILE, FOLK_MAPPING)
+    a = 1
 
 # Testing individual functions using different datasets
 
