@@ -1,12 +1,20 @@
-from json import load
 import os
+import json
 import music21 as m21
 
 VIVALDI_DATASET_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/soundtracks/vivaldi_op8"
 FOLK_DATASET_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/soundtracks/deutschl/test"
 
-VIVALDI_SAVE_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/vivaldi"
+CLASSICAL_SAVE_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/classical"
 FOLK_SAVE_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/folk"
+
+CLASSICAL_SINGLE_FILE = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/classical/combined"
+FOLK_SINGLE_FILE = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/folk/combined"
+
+CLASSICAL_MAPPING = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/classical/mapping.json"
+FOLK_MAPPING = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/folk/mapping.json"
+
+SEQUENCE_LENGTH = 64
 
 ACCEPTED_DURATIONS = [
     0.25, # sixteenth note
@@ -120,11 +128,58 @@ def preprocess(data_path, save_path, music_file_type):
             fp.write(timeseries_song)
 
 
-if __name__ == "__main__":
-    preprocess(FOLK_DATASET_PATH, FOLK_SAVE_PATH, "krn")
+def load(file_path):
+    with open(file_path, "r") as fp:
+        song = fp.read()
+    return song
 
+
+def generate_single_file_dataset(dataset_path, single_file_path, sequence_length):
+    new_song_delimiter = "/ " * sequence_length
+    songs = ""
+
+    # load timeseries files and add delimiters
+    for path, _, files in os.walk(dataset_path):
+        for file in files:
+            file_path = os.path.join(path, file)
+            song = load(file_path)
+            songs = songs + song + " " + new_song_delimiter
+    songs = songs[:-1]
+
+    # save the string that contains the entire data set
+    with open(single_file_path, "w") as fp:
+        fp.write(songs)
+    
+    return songs
+
+
+def create_dictionary(songs, mapping_path):
+    dictionary = {}
+
+    # identify look up table definitions
+    songs = songs.split()
+    definition = list(set(songs))
+
+    # create look up table
+    for i, symbol in enumerate(definition):
+        dictionary[symbol] = i
+
+    # save definitions to a json file
+    with open(mapping_path, "w") as fp:
+        json.dump(dictionary, fp, indent=4)
+
+
+def main():
+    preprocess(VIVALDI_DATASET_PATH, CLASSICAL_SAVE_PATH, "krn")
+    classical_songs = generate_single_file_dataset(CLASSICAL_SAVE_PATH, CLASSICAL_SINGLE_FILE, SEQUENCE_LENGTH)
+    create_dictionary(classical_songs, CLASSICAL_MAPPING)
+
+    preprocess(FOLK_DATASET_PATH, FOLK_SAVE_PATH, "krn")
+    folk_songs = generate_single_file_dataset(FOLK_SAVE_PATH, FOLK_SINGLE_FILE, SEQUENCE_LENGTH)
+    create_dictionary(folk_songs, FOLK_MAPPING)
 
 # Testing individual functions using different datasets
+
     # songs = load_songs(VIVALDI_DATASET_PATH, "krn")
     # print(f"Loaded {len(songs)} songs.")
     
@@ -142,5 +197,9 @@ if __name__ == "__main__":
         
     #     print(f"The original key of the song is {current_key}")
     #     print(f"The new key of the song is {new_key}")
+
+if __name__ == "__main__":
+    main()
+
 
         
