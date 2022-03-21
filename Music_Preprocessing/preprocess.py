@@ -4,18 +4,22 @@ import music21 as m21
 import numpy as np
 import tensorflow.keras as keras
 
-VIVALDI_DATASET_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/soundtracks/vivaldi_op8"
-FOLK_DATASET_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/soundtracks/deutschl/test"
+VIVALDI_DATASET_PATH = "soundtracks/vivaldi_op8"
+FOLK_DATASET_PATH = "soundtracks/deutschl/erk"
+DEBUSSY_DATASET_PATH = "soundtracks/debussy_et_al"
 
-CLASSICAL_SAVE_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/classical"
-FOLK_SAVE_PATH = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/folk"
+CLASSICAL_SAVE_PATH = "dataset/classical"
+FOLK_SAVE_PATH = "dataset/folk"
+DEBUSSY_SAVE_PATH = "dataset/debussy_et_al"
 
-CLASSICAL_SINGLE_FILE = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/classical/combined"
-FOLK_SINGLE_FILE = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/folk/combined"
+CLASSICAL_SINGLE_FILE = "dataset/classical/combined"
+FOLK_SINGLE_FILE = "dataset/folk/combined"
 
-CLASSICAL_MAPPING = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/classical/mapping.json"
-FOLK_MAPPING = "C:/Users/sendt/Documents/Year_4/MTE 546/Project/Music_Preprocessing/dataset/folk/mapping.json"
+CLASSICAL_MAPPING = "dataset/classical/mapping.json"
+FOLK_MAPPING = "dataset/folk/mapping.json"
 
+DEBUSSY_SINGLE_FILE = "dataset/debussy_et_al/combined"
+DEBUSSY_MAPPING = "dataset/debussy_et_al/mapping.json"
 SEQUENCE_LENGTH = 64
 
 ACCEPTED_DURATIONS = [
@@ -195,6 +199,8 @@ def generate_training_sequences(sequence_length, single_file_path, json_path):
     # load songs and map them to int
     songs = load(single_file_path)
     int_songs = convert_songs_to_ints(songs, json_path)
+    print(type(int_songs[0]))
+    print(type(sequence_length))
 
     # generate the training sequences
     # ex.
@@ -212,20 +218,29 @@ def generate_training_sequences(sequence_length, single_file_path, json_path):
     vocabulary_size = len(set(int_songs))
     inputs = keras.utils.to_categorical(inputs, num_classes=vocabulary_size)
     targets = np.array(targets)
+    print(len(inputs))
+    print(len(inputs[0]))
+    print(len(inputs[0][0]))
 
     return inputs, targets
 
 
 def main():
-    preprocess(VIVALDI_DATASET_PATH, CLASSICAL_SAVE_PATH, "krn")
-    classical_songs = generate_single_file_dataset(CLASSICAL_SAVE_PATH, CLASSICAL_SINGLE_FILE, SEQUENCE_LENGTH)
-    create_dictionary(classical_songs, CLASSICAL_MAPPING)
-    classical_inputs, classical_targets = generate_training_sequences(SEQUENCE_LENGTH, CLASSICAL_SINGLE_FILE, CLASSICAL_MAPPING)
+    # preprocess(VIVALDI_DATASET_PATH, CLASSICAL_SAVE_PATH, "krn")
+    # classical_songs = generate_single_file_dataset(CLASSICAL_SAVE_PATH, CLASSICAL_SINGLE_FILE, SEQUENCE_LENGTH)
+    # create_dictionary(classical_songs, CLASSICAL_MAPPING)
+    # classical_inputs, classical_targets = generate_training_sequences(SEQUENCE_LENGTH, CLASSICAL_SINGLE_FILE, CLASSICAL_MAPPING)
 
-    preprocess(FOLK_DATASET_PATH, FOLK_SAVE_PATH, "krn")
-    folk_songs = generate_single_file_dataset(FOLK_SAVE_PATH, FOLK_SINGLE_FILE, SEQUENCE_LENGTH)
-    create_dictionary(folk_songs, FOLK_MAPPING)
-    folk_inputs, folk_targets = generate_training_sequences(SEQUENCE_LENGTH, FOLK_SINGLE_FILE, FOLK_MAPPING)
+    preprocess(DEBUSSY_DATASET_PATH, DEBUSSY_SAVE_PATH, "krn")
+    debussy_songs = generate_single_file_dataset(DEBUSSY_SAVE_PATH, DEBUSSY_SINGLE_FILE, SEQUENCE_LENGTH)
+    create_dictionary(debussy_songs, DEBUSSY_MAPPING)
+    debussy_inputs, debussy_targets = generate_training_sequences(SEQUENCE_LENGTH, DEBUSSY_SINGLE_FILE, DEBUSSY_MAPPING)
+
+
+    # preprocess(FOLK_DATASET_PATH, FOLK_SAVE_PATH, "krn")
+    # folk_songs = generate_single_file_dataset(FOLK_SAVE_PATH, FOLK_SINGLE_FILE, SEQUENCE_LENGTH)
+    # create_dictionary(folk_songs, FOLK_MAPPING)
+    # folk_inputs, folk_targets = generate_training_sequences(SEQUENCE_LENGTH, FOLK_SINGLE_FILE, FOLK_MAPPING)
  
 
 # Testing individual functions using different datasets
