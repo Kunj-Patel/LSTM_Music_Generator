@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" action="/create-melody">
+    <div class="form-group">
+        <label for="Initial Seed">Initial Seed</label>
+        <input type="text" name="Initial Seed"
+               placeholder="Initial Seed" class="form-control"
+               ></input>
+    </div>
+    <div class="form-group">
+        <label for="temperature">Temperature</label>
+        <input type="text" name="temperature"
+               placeholder="temperature" class="form-control"></input>
+    </div>
+    <div class="form-group">
+        <label for="music-type">Music Type</label>
+        <input type="text" name="music-type"
+               placeholder="music-type" class="form-control"></input>
+    </div>
+    <div class="form-group">
+        <label for="number-steps">Number Steps</label>
+        <input type="text" name="number-steps"
+               placeholder="number-steps" class="form-control"></input>
+    </div>
+    {# <div class="form-group">
+        <label for="music-type">Select Music Type</label>
+        <select class="form-control" id="music-type" name="music-type">
+            <option>folk</option>
+            <option>classical</option>
+            <option>debussy</option>
+        </select>
+  </div> #}
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Generate Music</button>
+    </div>
+    
+        <midi-player src="{{ url_for('static', filename= 'mel.mid') }}" sound-font>
+        </midi-player>
+</form>
+{% endblock %}

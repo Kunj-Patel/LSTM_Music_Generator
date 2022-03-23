@@ -2,19 +2,19 @@ import json
 import numpy as np
 import tensorflow.keras as keras
 import music21 as m21
-from preprocess import SEQUENCE_LENGTH, FOLK_MAPPING, CLASSICAL_SINGLE_FILE, CLASSICAL_MAPPING, DEBUSSY_SINGLE_FILE, DEBUSSY_MAPPING
+from preprocess import SEQUENCE_LENGTH, FOLK_MAPPING, CLASSICAL_SINGLE_FILE, CLASSICAL_MAPPING, DEBUSSY_SINGLE_FILE, DEBUSSY_MAPPING, CLASSICAL_SINGLE_FILE, CLASSICAL_MAPPING, MIXED_MAPPING
 from train import SAVE_MODEL_PATH
 
 class MelodyGenerator:
     """A class that wraps the LSTM model and offers utilities to generate melodies."""
 
-    def __init__(self, model_path=SAVE_MODEL_PATH):
+    def __init__(self, model_path=SAVE_MODEL_PATH, mapping=MIXED_MAPPING):
         """Constructor that initialises TensorFlow model"""
 
         self.model_path = model_path
         self.model = keras.models.load_model(model_path)
 
-        with open(DEBUSSY_MAPPING, "r") as fp:
+        with open(mapping, "r") as fp:
             self._mappings = json.load(fp)
 
         self._start_symbols = ["/"] * SEQUENCE_LENGTH
@@ -143,8 +143,10 @@ if __name__ == "__main__":
     seedInDebussy = "r _ 76 76 58 50 62 "
     seedInDebussy2 = "r _ _ _ r _ 76 _ 56 _ 64 _ 79 _ 56 66 _ _ _ 77 _ 74 _ 50 _ 69 _ 79"
     seedInDebussy3 = "50 69 62 70 "*2
+    seedInDebussy4 = "50 51 52 53 54 55 56 57 69"
+    seedInDebussy5 = "r _ _ _ r _ 60 _ _ _ 59 57 55 _ _ _ 64 _"
 
-    melody = mg.generate_melody(seedInDebussy, 200, SEQUENCE_LENGTH, 1)
+    melody = mg.generate_melody(seed4, 1000, SEQUENCE_LENGTH, 1)
     print(melody)
     print(len(melody))
     mg.save_melody(melody)

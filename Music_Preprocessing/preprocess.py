@@ -7,16 +7,20 @@ import tensorflow.keras as keras
 VIVALDI_DATASET_PATH = "soundtracks/vivaldi_op8"
 FOLK_DATASET_PATH = "soundtracks/deutschl/erk"
 DEBUSSY_DATASET_PATH = "soundtracks/debussy_et_al"
+MIXED_DATASET_PATH = "soundtracks/mixed"
 
 CLASSICAL_SAVE_PATH = "dataset/classical"
 FOLK_SAVE_PATH = "dataset/folk"
 DEBUSSY_SAVE_PATH = "dataset/debussy_et_al"
+MIXED_SAVE_PATH = "dataset/mixed"
 
 CLASSICAL_SINGLE_FILE = "dataset/classical/combined"
 FOLK_SINGLE_FILE = "dataset/folk/combined"
+MIXED_SINGLE_FILE = "dataset/mixed/combined"
 
 CLASSICAL_MAPPING = "dataset/classical/mapping.json"
 FOLK_MAPPING = "dataset/folk/mapping.json"
+MIXED_MAPPING = "dataset/mixed/mapping.json"
 
 DEBUSSY_SINGLE_FILE = "dataset/debussy_et_al/combined"
 DEBUSSY_MAPPING = "dataset/debussy_et_al/mapping.json"
@@ -231,11 +235,15 @@ def main():
     # create_dictionary(classical_songs, CLASSICAL_MAPPING)
     # classical_inputs, classical_targets = generate_training_sequences(SEQUENCE_LENGTH, CLASSICAL_SINGLE_FILE, CLASSICAL_MAPPING)
 
-    preprocess(DEBUSSY_DATASET_PATH, DEBUSSY_SAVE_PATH, "krn")
-    debussy_songs = generate_single_file_dataset(DEBUSSY_SAVE_PATH, DEBUSSY_SINGLE_FILE, SEQUENCE_LENGTH)
-    create_dictionary(debussy_songs, DEBUSSY_MAPPING)
-    debussy_inputs, debussy_targets = generate_training_sequences(SEQUENCE_LENGTH, DEBUSSY_SINGLE_FILE, DEBUSSY_MAPPING)
+    # preprocess(DEBUSSY_DATASET_PATH, DEBUSSY_SAVE_PATH, "krn")
+    # debussy_songs = generate_single_file_dataset(DEBUSSY_SAVE_PATH, DEBUSSY_SINGLE_FILE, SEQUENCE_LENGTH)
+    # create_dictionary(debussy_songs, DEBUSSY_MAPPING)
+    # debussy_inputs, debussy_targets = generate_training_sequences(SEQUENCE_LENGTH, DEBUSSY_SINGLE_FILE, DEBUSSY_MAPPING)
 
+    preprocess(MIXED_DATASET_PATH, MIXED_SAVE_PATH, "krn")
+    mixed_songs = generate_single_file_dataset(MIXED_SAVE_PATH, MIXED_SINGLE_FILE, SEQUENCE_LENGTH)
+    create_dictionary(mixed_songs, MIXED_MAPPING)
+    mixed_inputs, mixed_targets = generate_training_sequences(SEQUENCE_LENGTH, MIXED_SINGLE_FILE, MIXED_MAPPING)
 
     # preprocess(FOLK_DATASET_PATH, FOLK_SAVE_PATH, "krn")
     # folk_songs = generate_single_file_dataset(FOLK_SAVE_PATH, FOLK_SINGLE_FILE, SEQUENCE_LENGTH)

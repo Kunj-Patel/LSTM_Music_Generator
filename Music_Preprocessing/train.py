@@ -1,14 +1,14 @@
 import tensorflow.keras as keras
-from preprocess import generate_training_sequences, SEQUENCE_LENGTH, FOLK_SAVE_PATH,FOLK_SINGLE_FILE, FOLK_MAPPING, CLASSICAL_SINGLE_FILE, CLASSICAL_MAPPING, DEBUSSY_SINGLE_FILE, DEBUSSY_MAPPING
+from preprocess import generate_training_sequences, SEQUENCE_LENGTH, FOLK_SAVE_PATH,FOLK_SINGLE_FILE, FOLK_MAPPING, CLASSICAL_SINGLE_FILE, CLASSICAL_MAPPING, DEBUSSY_SINGLE_FILE, DEBUSSY_MAPPING, MIXED_SINGLE_FILE, MIXED_MAPPING
 from tensorflow.keras.callbacks import ModelCheckpoint
 
-OUTPUT_UNITS = 45
+OUTPUT_UNITS = 63
 NUM_UNITS = [128]
 LOSS = "sparse_categorical_crossentropy"
 LEARNING_RATE = 0.001
 EPOCHS = 15
 BATCH_SIZE = 64
-SAVE_MODEL_PATH = "debussy_et_al_model.h5"
+SAVE_MODEL_PATH = "mixed_model.h5"
 
 
 def build_model(output_units, num_units, loss, learning_rate):
@@ -65,4 +65,4 @@ def train(single_file_path, json_path, output_units=OUTPUT_UNITS, num_units=NUM_
 
 
 if __name__ == "__main__":
-    train(DEBUSSY_SINGLE_FILE, DEBUSSY_MAPPING)
+    train(MIXED_SINGLE_FILE, MIXED_MAPPING)
